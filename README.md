@@ -23,7 +23,7 @@ docker run -it -d -v {path of volume} --gpus "device=0" -p {passing the port} --
 ~~~
 docker ps 
 ~~~
-# The container is running condition then enter the command below
+#The container is running condition then enter the command below
 ~~~
 docker exec -it {container_id} bash
 ~~~
