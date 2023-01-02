@@ -28,3 +28,5 @@ docker ps
 docker exec -it {container_id} bash
 ~~~
 
+
+
