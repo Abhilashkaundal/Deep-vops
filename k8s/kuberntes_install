@@ -25,3 +25,30 @@ sudo apt-get update \
 
 
 ```
+
+
+#Disable swap
+
+sudo swapoff -a
+
+#And init using kubeadm:
+
+sudo kubeadm init
+
+#Finish the configuration setup with Kubeadm:
+
+mkdir -p $HOME/.kube \
+   && sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config \
+   && sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   
+   
+#Step 3: Configure Networking¶
+#Now, setup networking with Calico:
+
+kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+
+#Untaint the control plane, so it can be used to schedule GPU pods in our simplistic single-node cluster:
+
+kubectl taint nodes --all node-role.kubernetes.io/master-   
+
+
