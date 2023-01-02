@@ -1,5 +1,27 @@
-### Ubuntu LTS¶
+```
+# Ubuntu LTS¶
 This section provides steps for setting up K8s on Ubuntu 18.04 and 20.04 LTS distributions.
 
-### step 1-:Install a Container Engine
+# step 1-:Install a Container Engine
 NVIDIA supports running GPU containers with Docker and other CRI compliant runtimes such as containerd or CRI-O.
+
+#Step 2: Install Kubernetes Components¶
+#First, install some dependencies:
+
+sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+#Add the package repository keys:
+
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+#And the repository:
+
+cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+
+#Update the package listing and install kubelet:
+
+sudo apt-get update \
+   && sudo apt-get install -y -q kubelet kubectl kubeadm
+
+
+```
