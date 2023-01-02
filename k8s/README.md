@@ -30,4 +30,4 @@ kubectl -n kubernetes-dashboard create token admin-user
 
 ----------------------------------------------------------------
 on browser login
-11. https://hostname:/#/login
+https://hostname:/#/login
